@@ -1,0 +1,12 @@
+.trimmer {
+  padding: 16px;
+}
+
+.trimmer video {
+  width: 100%;
+  border-radius: 12px;
+}
+
+.range {
+  margin-top: 16px;
+}

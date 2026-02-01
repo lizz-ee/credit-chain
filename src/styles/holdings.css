@@ -1,0 +1,369 @@
+.identity-card {
+  background: linear-gradient(135deg, #1a1f3c, #0e1020);
+  border-radius: 14px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.identity-label {
+  font-size: 12px;
+  color: #aaa;
+}
+
+.identity-value {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 4px;
+}
+
+.holdings-tabs {
+  display: flex;
+  margin: 14px 0;
+}
+
+.holdings-tabs button {
+  flex: 1;
+  padding: 10px;
+  background: transparent;
+  border: none;
+  opacity: 0.5;
+}
+
+.holdings-tabs button.active {
+  background: #1a1a1a;
+  color: white;
+}
+
+.holdings-tabs .active {
+  opacity: 1;
+  font-weight: 700;
+}
+
+.holdings-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.asset-card,
+.favorite-card,
+.rewards-card {
+  background: #111;
+  border: 1px solid #333;
+  border-radius: 12px;
+  padding: 14px;
+}
+
+.asset-title,
+.token-name {
+  font-weight: bold;
+}
+
+.asset-amount {
+  font-size: 18px;
+  margin-top: 6px;
+}
+
+.asset-note,
+.token-meta,
+.muted {
+  font-size: 12px;
+  color: #888;
+}
+
+.rewards-breakdown {
+  background: #0f0f0f;
+  border: 1px solid #333;
+  border-radius: 12px;
+  padding: 14px;
+}
+
+.breakdown-row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+}
+
+.amount {
+  font-size: 24px;
+  margin: 12px 0;
+}
+
+.creator-rewards-tab {
+  padding: 16px;
+}
+
+.reward-card {
+  background: linear-gradient(135deg, #1b1f3a, #0f1220);
+  border-radius: 14px;
+  padding: 18px;
+  border: 1px solid #2a2f55;
+}
+
+.reward-metric {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 12px;
+  font-size: 15px;
+}
+
+.info-box {
+  margin-top: 20px;
+  padding: 14px;
+  border-radius: 12px;
+  background: #0e101c;
+  border: 1px solid #2a2f55;
+}
+
+.info-box ul {
+  padding-left: 16px;
+  margin-top: 8px;
+  color: #aaa;
+}
+
+.portfolio-card {
+  background: #0e0e0e;
+  padding: 14px;
+  border-radius: 14px;
+}
+
+.portfolio-label {
+  font-size: 12px;
+  opacity: 0.6;
+}
+
+.portfolio-value {
+  font-size: 26px;
+  font-weight: 700;
+  margin-top: 4px;
+}
+
+.portfolio-pnl {
+  margin-top: 6px;
+  font-size: 14px;
+}
+
+.portfolio-pnl.pos {
+  color: #4dff91;
+}
+
+.balances-card {
+  background: #0b0b0b;
+  border-radius: 14px;
+  padding: 12px;
+  margin-bottom: 12px;
+}
+
+.balance-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  padding: 6px 0;
+}
+
+.list {
+  background: #0b0b0b;
+  border-radius: 14px;
+  padding: 8px;
+}
+
+.list .row {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #1c1c1c;
+}
+
+.muted {
+  opacity: 0.5;
+}
+
+.empty {
+  padding: 20px;
+  text-align: center;
+  opacity: 0.6;
+}
+
+.label {
+  font-size: 12px;
+  opacity: 0.6;
+}
+
+.value {
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.pnl {
+  margin-top: 6px;
+  font-size: 14px;
+}
+
+.green {
+  color: #00ff99;
+}
+
+.balances {
+  margin-top: 12px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.balances div {
+  background: #121212;
+  padding: 10px;
+  border-radius: 12px;
+  font-size: 13px;
+}
+
+.balances span {
+  opacity: 0.6;
+}
+
+.rewards-box {
+  background: #0e0e0e;
+  padding: 14px;
+  border-radius: 14px;
+}
+
+.claim {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.claim-btn {
+  padding: 8px 14px;
+  border-radius: 12px;
+  border: none;
+  background: #00e5ff;
+}
+
+.holdings-screen {
+  padding: 14px;
+}
+
+.holdings-card {
+  background: #0e0e0e;
+  border-radius: 14px;
+  padding: 14px;
+  margin-bottom: 14px;
+}
+
+.holdings-card.hero {
+  background: linear-gradient(
+    180deg,
+    rgba(0,229,255,0.08),
+    rgba(0,0,0,0)
+  );
+}
+
+.hero-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.hero-row.pnl strong {
+  color: #00e5ff;
+}
+
+.balance-row,
+.token-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.balance-sub {
+  font-size: 12px;
+  opacity: 0.6;
+  margin-top: 4px;
+}
+
+.action-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.link-btn {
+  background: none;
+  border: none;
+  color: #00e5ff;
+  font-size: 13px;
+}
+
+.holdings-screen {
+  padding: 14px;
+}
+
+.portfolio-card {
+  background: #111;
+  border-radius: 14px;
+  padding: 14px;
+  margin-bottom: 12px;
+}
+
+.value {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.pnl {
+  margin-top: 6px;
+  font-size: 13px;
+}
+
+.pnl .positive {
+  color: #00ff9d;
+  margin-left: 6px;
+}
+
+.balance-card {
+  background: #0c0c0c;
+  border: 1px solid #222;
+  border-radius: 14px;
+  padding: 14px;
+  margin-bottom: 14px;
+}
+
+.balance-card div {
+  margin-bottom: 8px;
+}
+
+.holdings-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.holdings-tabs button {
+  flex: 1;
+  padding: 8px;
+  border-radius: 10px;
+  background: #111;
+  border: 1px solid #222;
+  color: #aaa;
+}
+
+.holdings-tabs button.active {
+  background: #00e5ff;
+  color: #000;
+}
+
+.list-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px;
+  border-bottom: 1px solid #222;
+  cursor: pointer;
+}
+
+.rewards-box {
+  padding: 14px;
+  background: #111;
+  border-radius: 14px;
+}

@@ -1,0 +1,133 @@
+.create-screen input {
+  width: 100%;
+  margin-top: 12px;
+  padding: 12px;
+  border-radius: 10px;
+  background: #111;
+  color: #fff;
+  border: 1px solid #333;
+}
+
+.hint {
+  opacity: 0.6;
+  font-size: 12px;
+  margin-top: 10px;
+}
+
+.trimmer video {
+  width: 100%;
+  border-radius: 12px;
+}
+
+.create-screen {
+  padding: 12px;
+}
+
+.video-picker {
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.primary {
+  padding: 14px 18px;
+  border-radius: 14px;
+  border: none;
+  font-size: 16px;
+  background: #1a1a1a;
+  color: white;
+}
+
+.hint {
+  margin-top: 10px;
+  font-size: 12px;
+  opacity: 0.6;
+}
+
+.create-video {
+  width: 100%;
+  height: 55vh;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+.form {
+  margin-top: 10px;
+}
+
+.form input {
+  width: 100%;
+  margin-bottom: 8px;
+  padding: 12px;
+  border-radius: 12px;
+  border: none;
+  background: #0e0e0e;
+  color: white;
+}
+
+.rules {
+  font-size: 12px;
+  opacity: 0.6;
+  margin: 8px 0;
+}
+
+.launch {
+  width: 100%;
+  padding: 14px;
+  border-radius: 14px;
+  border: none;
+  background: #00e5ff;
+  color: black;
+  font-weight: 700;
+}
+
+.launch:disabled {
+  opacity: 0.4;
+}
+
+.create-screen {
+  padding: 16px;
+}
+
+.upload-box {
+  width: 100%;
+  height: 220px;
+  border-radius: 14px;
+  background: #111;
+  border: 1px dashed #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.upload-box video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.upload-box span {
+  opacity: 0.6;
+  font-size: 14px;
+}
+
+.create-screen input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  border: 1px solid #222;
+  background: #0c0c0c;
+  color: #fff;
+}
+
+.fine-print {
+  font-size: 12px;
+  opacity: 0.5;
+  margin-top: 10px;
+}

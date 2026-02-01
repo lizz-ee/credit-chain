@@ -1,0 +1,44 @@
+.governance-feed {
+  padding: 16px;
+}
+
+.status-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid #2a2a2a;
+  border-radius: 14px;
+  padding: 14px;
+  margin-bottom: 14px;
+}
+
+.feed-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.proposal-card {
+  cursor: pointer;
+}
+
+.proposal-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.risk {
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 999px;
+}
+
+.risk.low { background: rgba(0,200,120,0.15); color: #7cf2b0; }
+.risk.medium { background: rgba(255,180,0,0.15); color: #ffd27a; }
+.risk.high { background: rgba(255,60,60,0.15); color: #ff9b9b; }
+
+.line-clamp {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

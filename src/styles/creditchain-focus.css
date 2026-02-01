@@ -1,0 +1,21 @@
+:root {
+  --cc-focus-ring: 2px solid rgba(0,0,0,0.6);
+}
+
+/* Focus-visible utility (safe default) */
+.cc-focusable:focus {
+  outline: none;
+}
+.cc-focusable:focus-visible {
+  outline: var(--cc-focus-ring);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* Simple safe-area padding helper for Telegram iOS */
+.cc-safearea {
+  padding-top: env(safe-area-inset-top);
+  padding-right: env(safe-area-inset-right);
+  padding-bottom: env(safe-area-inset-bottom);
+  padding-left: env(safe-area-inset-left);
+}

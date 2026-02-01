@@ -1,0 +1,113 @@
+.profile-screen {
+  padding: 14px;
+}
+
+.identity-card,
+.section-card {
+  background: #0f1220;
+  border: 1px solid #2a2f55;
+  border-radius: 14px;
+  padding: 16px;
+  margin-top: 14px;
+}
+
+.username-pill {
+  margin-top: 8px;
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(0, 229, 255, 0.15);
+  color: #00e5ff;
+  font-weight: bold;
+}
+
+.link-hint {
+  color: #00e5ff;
+  margin-top: 6px;
+  font-size: 13px;
+}
+
+.profile-card {
+  background: #0e0e0e;
+  border-radius: 14px;
+  padding: 14px;
+  margin-bottom: 14px;
+}
+
+.profile-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.profile-list {
+  font-size: 13px;
+  padding-left: 16px;
+}
+
+.profile-list li {
+  margin-bottom: 8px;
+}
+
+.governance-feedback {
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+  background: #111;
+  border: 1px solid #333;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 13px;
+}
+
+.muted {
+  opacity: 0.6;
+  font-size: 13px;
+}
+
+.profile-screen {
+  padding: 16px;
+}
+
+.card {
+  background: #111;
+  border-radius: 14px;
+  padding: 14px;
+  margin-bottom: 14px;
+}
+
+.card h3 {
+  margin-bottom: 8px;
+}
+
+.card h4 {
+  margin-top: 10px;
+}
+
+.card ul {
+  padding-left: 16px;
+  margin-top: 6px;
+}
+
+.card textarea {
+  width: 100%;
+  margin-top: 10px;
+  background: #0c0c0c;
+  border: 1px solid #222;
+  border-radius: 10px;
+  padding: 10px;
+  color: #fff;
+}
+
+.danger {
+  border: 1px solid #402;
+}
+
+.danger-btn {
+  background: #ff3b3b;
+  color: #000;
+  border: none;
+  border-radius: 10px;
+  padding: 12px;
+  width: 100%;
+}
