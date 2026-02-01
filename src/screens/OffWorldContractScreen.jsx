@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { useGovernance } from '../hooks/useGovernance';
+
 export default function OffWorldContractScreen({ onBack }) {
   const { acknowledgeContract } = useGovernance();
   const contentRef = useRef(null);
