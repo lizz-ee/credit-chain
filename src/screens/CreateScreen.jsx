@@ -1,34 +1,27 @@
-import { useRef, useState } from 'react'
+import { useState } from 'react'
+import VideoUpload from '../components/VideoUpload'
 
 function CreateScreen() {
-const inputRef = useRef(null)
 const [video, setVideo] = useState(null)
 const [name, setName] = useState('')
 const [ticker, setTicker] = useState('')
 const [link, setLink] = useState('')
 
-const onPickVideo = (e) => {
-const file = e.target.files?.[0]
-if (!file) return
-setVideo(URL.createObjectURL(file))
+const handleVideoSelect = (file, videoUrl) => {
+setVideo(videoUrl)
+}
+
+const handleVideoRemove = () => {
+setVideo(null)
 }
 
 return (
 <div className="screen create-screen">
 {!video && (
-<div className="create-video-pick">
-<input
-ref={inputRef}
-type="file"
-accept="video/*"
-hidden
-onChange={onPickVideo}
+<VideoUpload
+onVideoSelect={handleVideoSelect}
+onVideoRemove={handleVideoRemove}
 />
-<button onClick={() => inputRef.current.click()}>
-Upload / Record Video
-</button>
-<div className="hint">3–15 seconds • Video only</div>
-</div>
 )}
 
 {video && (
