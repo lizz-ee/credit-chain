@@ -48,7 +48,7 @@ function VideoUpload({ onVideoSelect, onVideoRemove }) {
           <button onClick={() => inputRef.current.click()}>
             Upload / Record Video
           </button>
-          <div className="hint">3–15 seconds • Video only</div>
+          <div className="hint">Max 60 seconds • 9:16 vertical • Video only</div>
         </div>
       )}
 
