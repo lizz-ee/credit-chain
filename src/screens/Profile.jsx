@@ -1,8 +1,12 @@
 import "./profile.css";
+import WalletConnect from "../components/WalletConnect";
 
 export default function Profile() {
   return (
     <div className="screen profile-screen">
+      {/* WALLET */}
+      <WalletConnect />
+
       {/* IDENTITY */}
       <Section title="Identity">
         <Row label="Telegram" value="@username" />
