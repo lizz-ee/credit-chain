@@ -108,6 +108,7 @@ export function WalletProvider({ children }) {
         setError(err.message || "Failed to connect to MetaMask");
       }
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   /**
@@ -152,7 +153,7 @@ export function WalletProvider({ children }) {
       }
       // TON balance updates would go here in future
       // For now, TON Connect doesn't expose balance directly
-    } catch (err) {
+    } catch {
       setError("Unable to fetch balance. Check connection.");
     }
   }, [walletAddress, walletType]);
@@ -201,6 +202,7 @@ export function WalletProvider({ children }) {
 /**
  * Hook helper
  */
+// eslint-disable-next-line react-refresh/only-export-components
 export function useWallet() {
   const ctx = useContext(WalletContext);
   if (!ctx) {
