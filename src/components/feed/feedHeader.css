@@ -1,0 +1,9 @@
+
+.feed-header{
+  position:sticky;top:0;
+  background:#000;color:#fff;
+  padding:10px;
+}
+.feed-header .search{
+  width:100%;margin-top:8px;
+}

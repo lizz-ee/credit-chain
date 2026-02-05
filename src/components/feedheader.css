@@ -1,0 +1,44 @@
+.feed-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 14px;
+  background: #0b0c0e;
+  border-bottom: 1px solid #1f232b;
+}
+
+.wordmark {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  color: #8a8f98;
+  font-size: 18px;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.search-bar input {
+  flex: 1;
+  height: 34px;
+  background: #15181d;
+  border: 1px solid #6bff4f;
+  border-radius: 8px;
+  color: #edf0f2;
+  padding: 0 10px;
+  font-size: 13px;
+}

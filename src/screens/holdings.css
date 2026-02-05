@@ -1,0 +1,109 @@
+.holdings-screen {
+  padding-bottom: calc(64px + env(safe-area-inset-bottom));
+  background: #0b0c0e;
+  color: #edefef;
+}
+
+/* SUMMARY */
+.credits-summary {
+  padding: 16px;
+  border-bottom: 1px solid #1f232b;
+  background: linear-gradient(135deg, rgba(107,255,79,.06), transparent);
+}
+
+.metric .label {
+  font-size: 11px;
+  color: #8a8f98;
+  font-weight: 800;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+
+.metric .value {
+  font-size: 28px;
+  font-weight: 900;
+  margin-top: 4px;
+}
+
+.metric.small .value {
+  font-size: 18px;
+}
+
+.row {
+  display: flex;
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.row.meta {
+  margin-top: 8px;
+  font-size: 12px;
+  color: #8a8f98;
+  display: flex;
+  justify-content: space-between;
+}
+
+.warn {
+  color: #e6ff3f;
+}
+
+.pnl {
+  margin-top: 10px;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.pos { color: #6bff4f; }
+.neg { color: #ff3b3b; }
+
+/* TABS */
+.holdings-tabs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-bottom: 1px solid #1f232b;
+}
+
+.tab {
+  height: 40px;
+  background: none;
+  border: none;
+  color: #8a8f98;
+  font-weight: 800;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+.tab.active {
+  color: #6bff4f;
+  border-bottom: 2px solid #6bff4f;
+}
+
+/* LIST */
+.holdings-list {
+  padding: 8px 0;
+}
+
+.holding-card {
+  margin: 8px 16px;
+  padding: 12px;
+  border: 1px solid #1f232b;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.holding-card:active {
+  transform: scale(.98);
+  border-color: #6bff4f;
+}
+
+.ticker {
+  font-size: 16px;
+  font-weight: 900;
+}
+
+.sub {
+  font-size: 12px;
+  color: #8a8f98;
+}

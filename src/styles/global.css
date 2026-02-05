@@ -1,0 +1,69 @@
+/* RESET */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  background: #0b0c0e;
+  color: #edeff2;
+  font-family: -apple-system, BlinkMacSystemFont, Inter, system-ui, sans-serif;
+  overflow: hidden;
+}
+
+/* ROOT */
+#root {
+  height: 100%;
+}
+
+/* APP SHELL */
+.app-shell {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  padding-bottom: 64px; /* bottom nav space */
+  background: #0b0c0e;
+}
+
+/* SCREENS */
+.screen {
+  height: 100%;
+  width: 100%;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 24px;
+}
+
+/* CARD */
+.card {
+  background: #15181d;
+  border: 1px solid #1f232b;
+  border-radius: 12px;
+  padding: 16px;
+}
+
+/* TEXT */
+.muted {
+  color: #8a8f98;
+}
+
+.acid {
+  color: #6bff4f;
+}
+
+/* BUTTON */
+button {
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+}
+
+/* TAP FEEDBACK */
+.pressable:active {
+  transform: scale(0.96);
+}

@@ -1,32 +1,52 @@
+import { useEffect } from "react";
+import "./ChartScreen.css";
 
-import { useMemo } from 'react'
-
-export default function ChartScreen({ coin, onBack }) {
-  const intensity = Math.min(1, (coin.marketCap || 0) / 10000000)
-
-  const curveStyle = useMemo(() => ({
-    strokeWidth: 2 + intensity * 2,
-    filter: `drop-shadow(0 0 ${6 + intensity * 8}px rgba(0,229,255,${0.25 + intensity * 0.35}))`
-  }), [intensity])
+export default function ChartScreen({
+  tokenSymbol = "CRED",
+  onClose,
+}) {
+  useEffect(() => {
+    // lock background scroll
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, []);
 
   return (
     <div className="chart-screen">
+      {/* HEADER */}
       <div className="chart-header">
-        <button onClick={onBack}>Back</button>
-        <div className="chart-title">{coin.name}</div>
+        <button className="chart-back" onClick={onClose}>
+          ←
+        </button>
+
+        <div className="chart-title">
+          <div className="chart-symbol">{tokenSymbol}</div>
+          <div className="chart-sub">Market Cap</div>
+        </div>
       </div>
 
-      <svg className="chart-canvas" viewBox="0 0 100 100" preserveAspectRatio="none">
-        <path
-          d="M0,80 C20,70 40,50 60,40 80,30 100,10"
-          className="chart-curve"
-          style={curveStyle}
-        />
-      </svg>
+      {/* CHART BODY */}
+      <div className="chart-body">
+        {/* Placeholder chart */}
+        <div className="chart-placeholder">
+          <div className="chart-line" />
+          <div className="chart-glow" />
+        </div>
+      </div>
 
+      {/* FOOTER STATS */}
       <div className="chart-footer">
-        <div className="mc-pill">MC ${(coin.marketCap || 0).toLocaleString()}</div>
+        <div className="chart-stat">
+          <span>MC</span>
+          <strong>$1.42M</strong>
+        </div>
+        <div className="chart-stat">
+          <span>24h</span>
+          <strong className="up">+38%</strong>
+        </div>
       </div>
     </div>
-  )
+  );
 }

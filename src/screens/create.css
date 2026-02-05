@@ -1,0 +1,57 @@
+.create-screen {
+  padding: 20px 16px 90px;
+}
+
+.create-title {
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  margin-bottom: 24px;
+}
+
+.create-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.create-btn {
+  height: 56px;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 800;
+  border: 1.5px solid #1f232b;
+  background: #15181d;
+  color: #edf0f2;
+  transition: transform 0.15s ease;
+}
+
+.create-btn:active {
+  transform: scale(0.97);
+}
+
+.create-btn.primary {
+  background: #6bff4f;
+  color: #0b0c0e;
+  border: none;
+  box-shadow: 0 0 18px rgba(107, 255, 79, 0.35);
+}
+
+.create-rules {
+  margin-top: 28px;
+  padding: 16px;
+  border-radius: 12px;
+  background: rgba(107, 255, 79, 0.04);
+  border: 1px solid rgba(107, 255, 79, 0.15);
+}
+
+.rule {
+  font-size: 13px;
+  font-weight: 600;
+  color: #8a8f98;
+  margin-bottom: 10px;
+}
+
+.rule:last-child {
+  margin-bottom: 0;
+}

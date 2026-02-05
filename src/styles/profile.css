@@ -1,113 +1,132 @@
 .profile-screen {
-  padding: 14px;
+padding: 14px;
+padding-bottom: 96px;
 }
 
-.identity-card,
-.section-card {
-  background: #0f1220;
-  border: 1px solid #2a2f55;
-  border-radius: 14px;
-  padding: 16px;
-  margin-top: 14px;
+.profile-header .profile-title {
+font-size: 18px;
+font-weight: 950;
 }
 
-.username-pill {
-  margin-top: 8px;
-  display: inline-block;
-  padding: 6px 12px;
-  border-radius: 999px;
-  background: rgba(0, 229, 255, 0.15);
-  color: #00e5ff;
-  font-weight: bold;
+.profile-header .profile-sub {
+font-size: 12px;
+margin-top: 4px;
+opacity: 0.6;
 }
 
-.link-hint {
-  color: #00e5ff;
-  margin-top: 6px;
-  font-size: 13px;
+.profile-tabs {
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+gap: 6px;
+margin-top: 12px;
 }
 
-.profile-card {
-  background: #0e0e0e;
-  border-radius: 14px;
-  padding: 14px;
-  margin-bottom: 14px;
+.profile-tabs button {
+height: 36px;
+border-radius: 12px;
+border: 1px solid rgba(255,255,255,0.12);
+background: rgba(255,255,255,0.04);
+color: rgba(255,255,255,0.8);
+font-size: 12px;
+font-weight: 900;
 }
 
-.profile-row {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 8px;
-}
-
-.profile-list {
-  font-size: 13px;
-  padding-left: 16px;
-}
-
-.profile-list li {
-  margin-bottom: 8px;
-}
-
-.governance-feedback {
-  width: 100%;
-  margin-top: 10px;
-  padding: 10px;
-  background: #111;
-  border: 1px solid #333;
-  border-radius: 10px;
-  color: #fff;
-  font-size: 13px;
-}
-
-.muted {
-  opacity: 0.6;
-  font-size: 13px;
-}
-
-.profile-screen {
-  padding: 16px;
+.profile-tabs button.active {
+background: rgba(0,255,153,0.18);
+border-color: rgba(0,255,153,0.35);
+color: white;
 }
 
 .card {
-  background: #111;
-  border-radius: 14px;
-  padding: 14px;
-  margin-bottom: 14px;
+margin-top: 12px;
+border-radius: 18px;
+padding: 14px;
+background: rgba(255,255,255,0.03);
+border: 1px solid rgba(255,255,255,0.08);
 }
 
-.card h3 {
-  margin-bottom: 8px;
+.card-title {
+font-size: 12px;
+opacity: 0.7;
+margin-bottom: 10px;
 }
 
-.card h4 {
-  margin-top: 10px;
+.p {
+font-size: 13px;
+opacity: 0.85;
+margin-bottom: 10px;
 }
 
-.card ul {
-  padding-left: 16px;
-  margin-top: 6px;
+.list {
+font-size: 12px;
+opacity: 0.85;
+display: grid;
+gap: 6px;
 }
 
-.card textarea {
-  width: 100%;
-  margin-top: 10px;
-  background: #0c0c0c;
-  border: 1px solid #222;
-  border-radius: 10px;
-  padding: 10px;
-  color: #fff;
+.note {
+margin-top: 10px;
+padding: 10px;
+border-radius: 14px;
+background: rgba(255,255,255,0.04);
+border: 1px solid rgba(255,255,255,0.10);
+font-size: 12px;
 }
 
-.danger {
-  border: 1px solid #402;
+.fee-block {
+margin-bottom: 12px;
+padding: 10px;
+border-radius: 14px;
+border: 1px solid rgba(255,255,255,0.10);
+background: rgba(255,255,255,0.04);
 }
 
-.danger-btn {
-  background: #ff3b3b;
-  color: #000;
-  border: none;
-  border-radius: 10px;
-  padding: 12px;
-  width: 100%;
+.fee-title {
+font-size: 12px;
+font-weight: 900;
+margin-bottom: 6px;
 }
+
+.fee-row {
+display: flex;
+justify-content: space-between;
+font-size: 12px;
+margin-bottom: 4px;
+}
+
+.fee-sub {
+font-size: 11px;
+opacity: 0.75;
+}
+
+.divider {
+height: 1px;
+background: rgba(255,255,255,0.08);
+margin: 12px 0;
+}
+
+.feedback {
+width: 100%;
+min-height: 80px;
+resize: vertical;
+border-radius: 14px;
+border: 1px solid rgba(255,255,255,0.12);
+background: rgba(255,255,255,0.04);
+color: white;
+padding: 10px;
+font-size: 13px;
+margin-bottom: 10px;
+}
+
+.primary-btn {
+width: 100%;
+padding: 13px;
+border-radius: 14px;
+border: none;
+background: rgba(0,255,153,0.22);
+color: white;
+font-size: 14px;
+font-weight: 900;
+}
+
+.muted { opacity: 0.6; }

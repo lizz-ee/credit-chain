@@ -1,33 +1,139 @@
-:root {
-  --bg: #0b0b0b;
-  --glass: rgba(255,255,255,0.06);
-  --border: rgba(255,255,255,0.12);
-  --text: #ffffff;
-  --muted: #9ca3af;
-  --cyan: #00e5ff;
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  background: #0b0c0e; /* matte black */
+  color: #ededed;
+  font-family: -apple-system, BlinkMacSystemFont, Inter, system-ui, sans-serif;
+  overflow: hidden;
+}
+
+/* APP CONTAINER */
+.app {
+  width: 100%;
+  height: 100%;
+  max-width: 430px; /* Telegram + mobile lock */
+  margin: 0 auto;
+  background: #0b0c0e;
+  position: relative;
+  overflow: hidden;
+}
+
+/* FEED */
+.feed {
+  height: calc(100% - 64px);
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+}
+
+.feed-item {
+  height: 100%;
+  scroll-snap-align: start;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000;
+}
+
+/* VIDEO PLACEHOLDER */
+.video {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, #111, #000);
+}
+
+/* OVERLAY */
+.overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* MC PILL */
+.mc-pill {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 6px 12px;
+  background: rgba(0,0,0,0.7);
+  border: 1px solid #222;
+  border-radius: 999px;
+  font-size: 12px;
+}
+
+/* ACTIONS */
+.actions {
+  position: absolute;
+  bottom: 80px;
+  right: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.action-btn {
+  width: 56px;
+  height: 44px;
+  background: rgba(0,0,0,0.8);
+  border: 1px solid #222;
+  border-radius: 10px;
+  color: white;
+  font-size: 11px;
+}
+
+/* BOTTOM NAV */
+.bottom-nav {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  background: #0b0c0e;
+  border-top: 1px solid #1f232b;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  color: #777;
+}
+
+.nav-item.active {
+  color: #6bff4f;
 }
 
 * {
   box-sizing: border-box;
 }
 
-body {
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
   margin: 0;
-  background: var(--bg);
-  color: var(--text);
-  font-family: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif;
+  padding: 0;
+  background: #0b0c0e;
+  font-family: -apple-system, BlinkMacSystemFont, "Inter", system-ui, sans-serif;
+  color: #edf0f2;
 }
 
-button {
-  background: none;
-  border: none;
-  color: inherit;
-  cursor: pointer;
-}
-
-.glass {
-  background: var(--glass);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 16px;
+/* TELEGRAM + MOBILE FIX */
+body {
+  overscroll-behavior: none;
+  -webkit-font-smoothing: antialiased;
 }

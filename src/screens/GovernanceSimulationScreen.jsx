@@ -1,4 +1,5 @@
-import { motion } from 'framer-motion'
+import { motion } from 'framer-motion';
+import useGovernance from '../hooks/useGovernance';
 
 export default function GovernanceSimulationScreen({ onNavigate }) {
   const { proposals, userVotes, getTimeRemaining, getRiskColor } = useGovernance()

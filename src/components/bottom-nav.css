@@ -1,0 +1,65 @@
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  padding-bottom: env(safe-area-inset-bottom);
+  background: #0B0C0E;
+  border-top: 1px solid #1F232B;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  z-index: 100;
+}
+
+/* NAV ITEM */
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  text-decoration: none;
+  color: #8A8F98;
+  font-weight: 700;
+  transition: transform 120ms ease;
+}
+
+/* ICON */
+.nav-item .icon {
+  font-size: 22px;
+  opacity: 0.45;
+  transition: all 160ms ease;
+}
+
+/* LABEL */
+.nav-item .label {
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  opacity: 0.5;
+}
+
+/* CENTER CREATE */
+.nav-item.center .icon {
+  font-size: 28px;
+  opacity: 0.7;
+}
+
+/* ACTIVE STATE */
+.nav-item.active .icon {
+  opacity: 1;
+  color: #6BFF4F;
+  text-shadow:
+    0 0 10px rgba(107,255,79,0.8),
+    0 0 22px rgba(107,255,79,0.5);
+}
+
+.nav-item.active .label {
+  color: #6BFF4F;
+  opacity: 1;
+}
+
+/* PRESS FEEL */
+.nav-item:active {
+  transform: scale(0.9);
+}

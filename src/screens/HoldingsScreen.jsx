@@ -1,139 +1,194 @@
-import { useState } from 'react'
-import { formatMc } from '../utils/formatMc'
+import { useMemo, useState } from 'react'
 
-export default function HoldingsScreen({
-  holdings = {},
-  favorites = [],
-  tokens = [],
-  creditsPrice = 1.48,
-  creditsSupply = 1_000_000,
+function HoldingsScreen({
+tokens = [],
+holdings = {},
+favorites = [],
+creditsBalance = 0,
+usdcBalance = 0,
+creditsPrice = null, // IMPORTANT: may be null if no buys yet
+lifetimePnl = 0,
+creatorRewards = [],
+onOpenToken,
 }) {
-  const [tab, setTab] = useState('holdings')
+const [tab, setTab] = useState('holdings') // holdings | favorites | rewards
 
-  const usdcBalance = holdings.usdc ?? 12450.32
-  const creditsBalance = holdings.credits ?? 8420.17
-  const lifetimePnl = holdings.pnl ?? 2140.11
+// ---- Derived Values ----
+const creditsValueUsdc = useMemo(() => {
+if (!creditsPrice) return 0
+return creditsBalance * creditsPrice
+}, [creditsBalance, creditsPrice])
 
-  const portfolioValue =
-    usdcBalance + creditsBalance * creditsPrice
+const portfolioValue = useMemo(() => {
+return usdcBalance + creditsValueUsdc
+}, [usdcBalance, creditsValueUsdc])
 
-  const creditsMc = creditsSupply * creditsPrice
+const heldTokens = useMemo(() => {
+return tokens.filter(t => holdings[t.id])
+}, [tokens, holdings])
 
-  return (
-    <div className="holdings-screen">
-      {/* PORTFOLIO SUMMARY */}
-      <div className="portfolio-card">
-        <div className="label">Portfolio Value</div>
-        <div className="value">
-          ${portfolioValue.toLocaleString()}
-        </div>
+const favoritedTokens = useMemo(() => {
+return tokens.filter(t => favorites.includes(t.id))
+}, [tokens, favorites])
 
-        <div className="pnl">
-          Lifetime PnL{' '}
-          <span className="green">
-            +${lifetimePnl.toLocaleString()}
-          </span>
-        </div>
-      </div>
+// ---- UI ----
+return (
+<div className="screen holdings-screen">
+{/* TOP SUMMARY */}
+<div className="holdings-summary">
+<div className="summary-row">
+<span className="label">Portfolio Value</span>
+<span className="value">
+${portfolioValue.toLocaleString(undefined, { maximumFractionDigits: 2 })}
+</span>
+</div>
 
-      {/* BALANCES */}
-      <div className="balances">
-        <div>
-          <span>USDC</span>
-          <strong>${usdcBalance.toLocaleString()}</strong>
-        </div>
+<div className="summary-row">
+<span className="label">Lifetime PnL</span>
+<span className={`value ${lifetimePnl >= 0 ? 'positive' : 'negative'}`}>
+{lifetimePnl >= 0 ? '+' : '-'}$
+{Math.abs(lifetimePnl).toLocaleString(undefined, { maximumFractionDigits: 2 })}
+</span>
+</div>
 
-        <div>
-          <span>Credits</span>
-          <strong>{creditsBalance.toLocaleString()} CRED</strong>
-        </div>
+<div className="divider" />
 
-        <div>
-          <span>Credit Price</span>
-          <strong>${creditsPrice} / CRED</strong>
-        </div>
+<div className="summary-row">
+<span className="label">USDC Balance</span>
+<span className="value">
+${usdcBalance.toLocaleString(undefined, { maximumFractionDigits: 2 })}
+</span>
+</div>
 
-        <div>
-          <span>Credit Market Cap</span>
-          <strong>${formatMc(creditsMc)}</strong>
-        </div>
-      </div>
+<div className="summary-row">
+<span className="label">Credits Balance</span>
+<span className="value">
+{creditsBalance.toLocaleString(undefined, { maximumFractionDigits: 2 })} CRED
+</span>
+</div>
 
-      {/* TOGGLES */}
-      <div className="holdings-tabs">
-        <button
-          className={tab === 'holdings' ? 'active' : ''}
-          onClick={() => setTab('holdings')}
-        >
-          Holdings
-        </button>
-        <button
-          className={tab === 'favorites' ? 'active' : ''}
-          onClick={() => setTab('favorites')}
-        >
-          Favorites
-        </button>
-        <button
-          className={tab === 'rewards' ? 'active' : ''}
-          onClick={() => setTab('rewards')}
-        >
-          Creator Rewards
-        </button>
-      </div>
+<div className="summary-row muted">
+<span className="label">Credits Price</span>
+<span className="value">
+{creditsPrice
+? `$${creditsPrice.toFixed(2)} / CRED`
+: '— No price yet'}
+</span>
+</div>
+</div>
 
-      {/* CONTENT */}
-      {tab === 'holdings' && (
-        <div className="list">
-          {tokens.map((t) => (
-            <div key={t.id} className="row">
-              <span>{t.name}</span>
-              <span>
-                MC Entry → {formatMc(t.marketCap)}
-              </span>
-            </div>
-          ))}
-        </div>
-      )}
+{/* TAB TOGGLES */}
+<div className="holdings-tabs">
+<button
+className={tab === 'holdings' ? 'active' : ''}
+onClick={() => setTab('holdings')}
+>
+Holdings
+</button>
+<button
+className={tab === 'favorites' ? 'active' : ''}
+onClick={() => setTab('favorites')}
+>
+Favorites
+</button>
+<button
+className={tab === 'rewards' ? 'active' : ''}
+onClick={() => setTab('rewards')}
+>
+Creator Rewards
+</button>
+</div>
 
-      {tab === 'favorites' && (
-        <div className="list">
-          {favorites.length === 0 && (
-            <p className="muted">No favorites yet</p>
-          )}
-          {favorites.map((id) => {
-            const t = tokens.find((x) => x.id === id)
-            if (!t) return null
-            return (
-              <div key={id} className="row">
-                <span>{t.name}</span>
-                <span>{formatMc(t.marketCap)}</span>
-              </div>
-            )
-          })}
-        </div>
-      )}
+{/* TAB CONTENT */}
+<div className="holdings-content">
+{tab === 'holdings' && (
+<>
+{heldTokens.length === 0 && (
+<div className="empty-state">No token holdings yet</div>
+)}
 
-      {tab === 'rewards' && (
-        <div className="rewards-box">
-          <h3>Creator Rewards</h3>
-          <p>
-            Rewards are paid in <strong>Credits</strong>.
-          </p>
-          <p className="muted">
-            Includes memecoin creator fees and invite-link volume
-            rewards.
-          </p>
+{heldTokens.map(token => {
+const position = holdings[token.id]
+return (
+<div
+key={token.id}
+className="token-row"
+onClick={() => onOpenToken?.(token.id)}
+>
+<div className="token-left">
+<div className="token-thumb" />
+<div className="token-meta">
+<div className="ticker">{token.name}</div>
+<div className="sub">
+Entry MC → Current MC
+</div>
+</div>
+</div>
 
-          <div className="claim">
-            <div>
-              Available: <strong>1,420 CRED</strong>
-            </div>
-            <button className="claim-btn">
-              Claim Rewards
-            </button>
-          </div>
-        </div>
-      )}
-    </div>
-  )
+<div className="token-right">
+<div className="value">
+{position.amount.toLocaleString()} CRED
+</div>
+<div className="sub muted">
+{creditsPrice
+? `$${(position.amount * creditsPrice).toFixed(2)}`
+: '—'}
+</div>
+</div>
+</div>
+)
+})}
+</>
+)}
+
+{tab === 'favorites' && (
+<>
+{favoritedTokens.length === 0 && (
+<div className="empty-state">No favorited tokens</div>
+)}
+
+{favoritedTokens.map(token => (
+<div
+key={token.id}
+className="token-row"
+onClick={() => onOpenToken?.(token.id)}
+>
+<div className="token-left">
+<div className="token-thumb" />
+<div className="token-meta">
+<div className="ticker">{token.name}</div>
+<div className="sub muted">Favorited</div>
+</div>
+</div>
+</div>
+))}
+</>
+)}
+
+{tab === 'rewards' && (
+<>
+{creatorRewards.length === 0 && (
+<div className="empty-state">
+No creator rewards yet
+</div>
+)}
+
+{creatorRewards.map((r, idx) => (
+<div key={idx} className="reward-row">
+<div className="reward-left">
+<div className="ticker">{r.source}</div>
+<div className="sub muted">Credits earned</div>
+</div>
+<div className="reward-right">
+{r.amount.toLocaleString()} CRED
+</div>
+</div>
+))}
+</>
+)}
+</div>
+</div>
+)
 }
+
+export default HoldingsScreen

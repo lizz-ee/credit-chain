@@ -1,0 +1,31 @@
+
+.feed-container {
+  height: calc(100vh - 64px);
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+}
+
+.feed-item {
+  height: 100vh;
+  scroll-snap-align: start;
+  position: relative;
+  background: black;
+}
+
+.feed-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mc-pill {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 6px 12px;
+  background: rgba(0,0,0,0.7);
+  border: 1px solid #1F232B;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+}

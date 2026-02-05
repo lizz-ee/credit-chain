@@ -1,0 +1,16 @@
+:root {
+  --bg-primary: #0B0C0E;
+  --bg-secondary: #0F1115;
+  --card-bg: #15181D;
+  --border-base: #1F232B;
+  --text-primary: #EDEFF2;
+  --text-muted: #8A8F98;
+  --acid-green: #6BFF4F;
+}
+
+body {
+  margin: 0;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, Inter, system-ui, sans-serif;
+}

@@ -1,0 +1,1 @@
+ZIP2: Web-only Snake Feed animation. Drop-in component.

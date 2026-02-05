@@ -1,0 +1,11 @@
+.feed-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+}
+
+.feed-title {
+  font-weight: bold;
+  font-size: 18px;
+}

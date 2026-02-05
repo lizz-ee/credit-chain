@@ -1,0 +1,268 @@
+🔒 CREDIT-CHAIN — MASTER BUILD PROMPT (AUTHORITATIVE)
+
+You are taking over development of Credit-Chain, a Telegram-first crypto webapp.
+You have been provided a zip of the current working codebase.
+This zip is the single source of truth for what exists today.
+
+Your job is to continue building, polishing, and completing the app — not redesigning it, not re-architecting it unnecessarily, and not replacing files unless explicitly instructed.
+
+⸻
+
+1️⃣ CORE PRODUCT DEFINITION (READ CAREFULLY)
+
+Credit-Chain is:
+    •    A Telegram WebApp–first trading platform
+    •    Video-first feed (TikTok-style)
+    •    Identity-first (usernames matter)
+    •    USDC → Credits → Apps ecosystem
+    •    NOT a general crypto dashboard
+    •    NOT a generic DeFi UI
+
+The app is intentionally designed to:
+    •    Feel phone-native even on desktop
+    •    Be usable inside Telegram OR minimized in a browser
+    •    Never require fullscreen on desktop
+⸻
+
+2️⃣ PLATFORM CONSTRAINTS (NON-NEGOTIABLE)
+
+Telegram + Web
+    •    Mobile layout is the primary layout
+    •    Desktop is a framed phone view, not a responsive redesign
+    •    Do not stretch layouts wide on desktop
+    •    Assume 360–428px viewport as canonical
+
+Navigation
+    •    Bottom nav exists and stays
+    •    Feed is video-first
+    •    Trade panel is an overlay, not a page
+    •    No modal spam
+    •    No route explosion
+
+⸻
+
+3️⃣ VISUAL & MOTION SYSTEM (LOCKED)
+
+Color System
+    •    Background: matte black / rhino-liner black
+    •    Accent: acid green
+    •    Muted grays for inactive states
+    •    Icons are muted until active
+    •    No pastel
+    •    No gradients everywhere
+    •    No glassmorphism
+
+Motion Rules
+    •    Vertical motion only
+    •    Slide up to open
+    •    Drag down to dismiss
+    •    No horizontal page swipes
+    •    No fancy easing libraries
+    •    Motion should feel heavy, not floaty
+
+⸻
+
+4️⃣ FEED RULES (CRITICAL)
+
+Feed is the heart of the app.
+    •    Full-viewport video tiles
+    •    One video active at a time
+    •    Overlays:
+    •    Market cap pill
+    •    Favorite star
+    •    Trade button
+    •    Trade opens slide-up panel
+    •    Feed never navigates away when trading
+    •    Scrolling is vertical snap
+
+Do not redesign feed layout unless explicitly asked.
+
+⸻
+
+5️⃣ TRADE PANEL RULES
+
+Trade panel:
+    •    Is a slide-up overlay
+    •    Partial height (NOT fullscreen)
+    •    Dismissible by:
+    •    Dragging down
+    •    Tapping backdrop
+    •    Lives in UI state (not router, not global rewrite)
+    •    No popups inside the panel
+
+⸻
+
+6️⃣ HOLDINGS / PROFILE / LOANS
+
+These screens:
+    •    Are secondary to feed
+    •    Must visually match feed system
+    •    Use same color + spacing rules
+    •    No separate design language
+    •    No over-engineering
+
+⸻
+
+7️⃣ DEVELOPMENT RULES (VERY IMPORTANT)
+
+File Handling
+    •    Do not rewrite the entire app
+    •    Prefer drop-in components
+    •    Prefer new files over modifying many existing ones
+    •    If replacing a file, send the full file
+    •    Never send partial snippets without context
+
+Architecture
+    •    Respect what already exists in the zip
+    •    If something is messy, stabilize it — don’t nuke it
+    •    Avoid introducing new state managers unless unavoidable
+    •    Avoid abstract “perfect architecture”
+
+Output Style
+
+When responding:
+    •    Be decisive
+    •    Do not ask philosophical questions
+    •    If unsure, make a reasonable assumption and proceed
+    •    Explain what you changed and why briefly
+
+⸻
+
+8️⃣ WHAT SUCCESS LOOKS LIKE
+
+Success is:
+    •    App runs with npm run dev
+    •    Feed feels good
+    •    Trade panel feels native
+    •    Bottom nav works
+    •    UI looks intentional (not default React)
+    •    No broken imports
+    •    No missing files
+
+This is not about perfection — it’s about momentum and correctness.
+
+⸻
+
+9️⃣ YOUR ROLE
+
+You are:
+    •    A senior product engineer
+    •    Acting as a builder, not a designer
+    •    Expected to finish, not prototype endlessly
+
+If something conflicts:
+    •    Follow this prompt
+    •    Then follow the existing code
+    •    Then ask for clarification only if blocked
+
+⸻
+
+🚨 FINAL INSTRUCTION
+
+Do not redesign Credit-Chain.
+Finish Credit-Chain.
+
+Begin by:
+    
+Inspecting the zip
+Identifying current structure
+Confirming what already works
+Improving incrementally
+1️⃣ A “DO NOT TOUCH” LIST (very important)
+
+This prevents the LLM from breaking working parts.
+
+Send this as a short text file or message:
+
+DO NOT MODIFY unless explicitly instructed:
+    •    main.jsx
+    •    vite.config.js
+    •    Telegram init / WebApp handshake logic
+    •    Any file already confirmed working by npm run dev
+    •    Routing structure unless broken
+
+Allowed to modify freely:
+    •    Feed UI components
+    •    Trade panel overlay
+    •    Bottom nav visuals
+    •    Styling / motion
+    •    New components
+
+Why this matters
+→ LLMs love “cleaning up” things that already work.
+
+⸻
+
+2️⃣ A CURRENT STATUS SNAPSHOT
+
+Just 5 bullets. No essays.
+
+Example:
+
+Current State
+    •    App boots successfully with npm run dev
+    •    Feed renders video tiles correctly
+    •    Bottom nav exists but needs visual polish
+    •    Trade panel exists but slide-up + drag-down is incomplete
+    •    Holdings / Profile are functional but visually basic
+
+This tells the LLM where to focus instead of re-doing basics.
+
+⸻
+
+3️⃣ A STRICT “HOW TO SHIP” RULE
+
+This is huge.
+
+Send this verbatim:
+
+Shipping Rules
+    •    Prefer drop-in files
+    •    Prefer adding files over refactoring
+    •    If replacing a file, always send the FULL FILE
+    •    Never say “just adjust X” — show the final code
+    •    Small, testable steps only
+
+This keeps it from going abstract.
+
+⸻
+
+4️⃣ A DESIGN INTENT SUMMARY (human language)
+
+Not CSS. Not specs. Just vibe.
+
+Example:
+
+Design Intent
+    •    This should feel like TikTok + Bloomberg Terminal
+    •    Video is king
+    •    UI should feel heavy, industrial, confident
+    •    No playful animations
+    •    No “Web3 candy” visuals
+    •    If something feels optional, remove it
+
+This helps the LLM make taste decisions.
+
+⸻
+
+🟡 OPTIONAL BUT VERY HELPFUL
+
+5️⃣ Screenshots of:
+    •    Feed (current)
+    •    Trade panel (current)
+    •    Bottom nav (current)
+
+LLMs reason much better when they can see what already exists.
+
+⸻
+
+6️⃣ One sentence that defines what NOT to build
+
+Example:
+
+“Do not add charts, analytics dashboards, notifications, wallets, or profile customization unless explicitly asked.”
+
+This prevents feature creep.
+The memecoin platform is video only no images. 
+
+Doesn’t exist yet.

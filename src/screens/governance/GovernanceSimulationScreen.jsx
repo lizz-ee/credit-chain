@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { useGovernance } from "../../hooks/useGovernance";
+import useGovernance from '../hooks/useGovernance';
 
 export default function GovernanceSimulationScreen({ onNavigate }) {
   const { proposals, vote } = useGovernance();

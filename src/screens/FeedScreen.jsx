@@ -1,40 +1,75 @@
-import { useState } from 'react'
-import VideoCard from '../components/feed/VideoCard'
+import { useEffect, useRef, useState } from 'react'
 
-const MOCK_FEED = [
-  {
-    id: 1,
-    symbol: '$DOGE',
-    marketCap: '$4.2M',
-    video: '/videos/sample1.mp4'
-  },
-  {
-    id: 2,
-    symbol: '$PEPE',
-    marketCap: '$1.1M',
-    video: '/videos/sample2.mp4'
-  }
-]
+function FeedScreen({
+tokens = [],
+onOpenChart,
+onToggleFavorite,
+favorites = [],
+}) {
+const containerRef = useRef(null)
+const [mode, setMode] = useState('new') // new | senders | mc
 
-export default function FeedScreen() {
-  const [index, setIndex] = useState(0)
+useEffect(() => {
+const el = containerRef.current
+if (!el) return
+el.scrollTop = 0
+}, [mode])
 
-  const next = () => {
-    if (index < MOCK_FEED.length - 1) setIndex(index + 1)
-  }
+return (
+<div className="screen feed-screen">
+{/* TOP TOGGLE */}
+<div className="feed-toggle">
+<button className={mode === 'new' ? 'active' : ''} onClick={() => setMode('new')}>
+New
+</button>
+<button className={mode === 'senders' ? 'active' : ''} onClick={() => setMode('senders')}>
+Senders
+</button>
+<button className={mode === 'mc' ? 'active' : ''} onClick={() => setMode('mc')}>
+MC
+</button>
+</div>
 
-  const prev = () => {
-    if (index > 0) setIndex(index - 1)
-  }
+{/* FEED */}
+<div className="feed-scroll" ref={containerRef}>
+{tokens.map(token => {
+const isFav = favorites.includes(token.id)
 
-  return (
-    <div className="feed-screen">
-      <VideoCard coin={MOCK_FEED[index]} />
+return (
+<div key={token.id} className="feed-item">
+{/* VIDEO */}
+<video
+src={token.videoUrl}
+muted
+autoPlay
+loop
+playsInline
+className="feed-video"
+onClick={() => onOpenChart(token.id)}
+/>
 
-      <div className="feed-nav">
-        <button onClick={prev}>↑</button>
-        <button onClick={next}>↓</button>
-      </div>
-    </div>
-  )
+{/* OVERLAY */}
+<div className="feed-overlay">
+<div className="mc-pill">
+MC {token.marketCap ? `$${token.marketCap.toLocaleString()}` : '—'}
+</div>
+
+<button
+className="fav-btn"
+onClick={(e) => {
+e.stopPropagation()
+onToggleFavorite(token.id)
+}}
+>
+{isFav ? '★' : '☆'}
+</button>
+</div>
+</div>
+)
+})}
+</div>
+</div>
+)
 }
+
+export default FeedScreen

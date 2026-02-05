@@ -1,21 +1,48 @@
-export function calculatePnL({
+/**
+ * Pure PnL calculator
+ * Used ONLY for simulation / UI display
+ * Never touches real balances
+ */
+
+export function calculatePnl({
   creditsBought,
   creditsSold,
-  entryMc,
-  currentMc,
+  entryMC,
+  currentMC,
   creditPriceUsd,
 }) {
-  const investedUsd = creditsBought * creditPriceUsd
-  const currentUsd = creditsSold
-    ? creditsSold * creditPriceUsd
-    : creditsBought * creditPriceUsd * (currentMc / entryMc)
+  if (
+    !creditsBought ||
+    !entryMC ||
+    !currentMC ||
+    !creditPriceUsd
+  ) {
+    return {
+      pnlUsd: 0,
+      pnlPercent: 0,
+      isPositive: true,
+    }
+  }
 
-  const pnlUsd = currentUsd - investedUsd
+  const netCredits = creditsBought - creditsSold
+
+  const entryValue =
+    (creditsBought / entryMC) * creditPriceUsd * entryMC
+
+  const currentValue =
+    (netCredits / entryMC) * creditPriceUsd * currentMC
+
+  const pnlUsd = currentValue - entryValue
+
+  const pnlPercent =
+    entryValue === 0 ? 0 : (pnlUsd / entryValue) * 100
 
   return {
-    investedUsd,
-    currentUsd,
     pnlUsd,
-    pnlPct: investedUsd > 0 ? (pnlUsd / investedUsd) * 100 : 0,
+    pnlPercent,
+    isPositive: pnlUsd >= 0,
   }
 }
+
+// 👇 ADD THIS
+export default calculatePnl

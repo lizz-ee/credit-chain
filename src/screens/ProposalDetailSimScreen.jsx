@@ -1,4 +1,4 @@
-import { useGovernance } from '../hooks/useGovernance'
+import useGovernance from '../hooks/useGovernance';
 
 export default function ProposalDetailSimScreen({ proposalId, onBack, onRequireUsername }) {
   const { proposals, userVotes, castVote } = useGovernance()
