@@ -1,0 +1,37 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  /* 20px radius required for pill shape aesthetic - approved deviation from 8px max */
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-base);
+  color: var(--text-primary);
+}
+
+.button.primary {
+  background: var(--acid-green);
+  color: var(--bg-primary);
+  border-color: var(--acid-green);
+}
+
+.button.secondary {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border-color: var(--border-base);
+}
+
+.button.active {
+  background: var(--acid-green);
+  color: var(--bg-primary);
+  border-color: var(--acid-green);
+}
+
+.button:hover {
+  border-color: var(--acid-green);
+}

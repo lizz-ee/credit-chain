@@ -168,8 +168,8 @@ export default function Feed({
 
 function formatMc(n) {
   const v = Number(n || 0);
-  if (v >= 1_000_000_000) return $${(v / 1_000_000_000).toFixed(2)}B;
-  if (v >= 1_000_000) return $${(v / 1_000_000).toFixed(2)}M;
-  if (v >= 1_000) return $${(v / 1_000).toFixed(0)}K;
-  return $${v.toFixed(0)};
+  if (v >= 1_000_000_000) return `$${(v / 1_000_000_000).toFixed(2)}B`;
+  if (v >= 1_000_000) return `$${(v / 1_000_000).toFixed(2)}M`;
+  if (v >= 1_000) return `$${(v / 1_000).toFixed(0)}K`;
+  return `$${v.toFixed(0)}`;
 }

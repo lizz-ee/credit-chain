@@ -9,6 +9,8 @@ import Profile from "./screens/Profile";
 import BottomNav from "./components/BottomNav";
 import TradePanel from "./components/TradePanel";
 
+import { TonConnectUIProvider } from "@tonconnect/ui-react";
+import { WalletProvider } from "./context/WalletContext";
 import { TradeProvider } from "./context/TradeContext";
 
 export default function App() {
@@ -32,19 +34,28 @@ export default function App() {
   };
 
   return (
-    <TradeProvider>
-      <div className="app-root">
-        {renderScreen()}
+    <TonConnectUIProvider
+      manifestUrl="/tonconnect-manifest.json"
+      actionsConfiguration={{
+        twaReturnUrl: 'https://t.me/CreditChainBot'
+      }}
+    >
+      <WalletProvider>
+        <TradeProvider>
+          <div className="app-root">
+            {renderScreen()}
 
-        {/* Global trade slide-up panel */}
-        <TradePanel />
+            {/* Global trade slide-up panel */}
+            <TradePanel />
 
-        {/* Bottom navigation */}
-        <BottomNav
-          active={activeTab}
-          onChange={setActiveTab}
-        />
-      </div>
-    </TradeProvider>
+            {/* Bottom navigation */}
+            <BottomNav
+              active={activeTab}
+              onChange={setActiveTab}
+            />
+          </div>
+        </TradeProvider>
+      </WalletProvider>
+    </TonConnectUIProvider>
   );
 }
