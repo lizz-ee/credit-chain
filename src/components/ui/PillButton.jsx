@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import styles from './PillButton.module.css'
 
 function PillButton({
   children,
@@ -7,10 +8,12 @@ function PillButton({
   variant = 'primary',
   className = '',
 }) {
-  const baseClass = 'pill-button'
-  const variantClass = `pill-button--${variant}`
-  const activeClass = active ? 'pill-button--active' : ''
-  const classes = [baseClass, variantClass, activeClass, className]
+  const classes = [
+    styles.button,
+    styles[variant],
+    active ? styles.active : '',
+    className
+  ]
     .filter(Boolean)
     .join(' ')
 
@@ -18,7 +21,7 @@ function PillButton({
     <motion.button
       className={classes}
       onClick={onClick}
-      whileTap={{ scale: 0.96 }}
+      whileTap={{ scale: 0.9 }}
     >
       {children}
     </motion.button>
