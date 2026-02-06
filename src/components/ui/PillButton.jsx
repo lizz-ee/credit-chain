@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import PropTypes from 'prop-types'
 import styles from './PillButton.module.css'
 
 function PillButton({
@@ -26,6 +27,14 @@ function PillButton({
       {children}
     </motion.button>
   )
+}
+
+PillButton.propTypes = {
+  children: PropTypes.node.isRequired,
+  onClick: PropTypes.func,
+  active: PropTypes.bool,
+  variant: PropTypes.oneOf(['primary', 'secondary']),
+  className: PropTypes.string,
 }
 
 export default PillButton
