@@ -1,0 +1,37 @@
+.container {
+  display: flex;
+  gap: 0;
+  background: #1a1a1a;
+  border: 2px solid #333;
+  border-radius: 8px;
+  padding: 4px;
+  width: fit-content;
+}
+
+.segment {
+  flex: 1;
+  padding: 10px 20px;
+  background: transparent;
+  border: none;
+  color: #888;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+
+.segment:hover {
+  color: #aaa;
+  background: rgba(107, 255, 79, 0.1);
+}
+
+.segment.active {
+  background: #6BFF4F;
+  color: #000;
+}
+
+.segment:active {
+  transform: scale(0.98);
+}
