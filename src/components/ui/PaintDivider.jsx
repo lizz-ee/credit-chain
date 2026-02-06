@@ -1,18 +1,27 @@
-import './ui-components.css'
+import { motion } from 'framer-motion'
+import PropTypes from 'prop-types'
+import styles from './PaintDivider.module.css'
 
-function PaintDivider({
-  orientation = 'horizontal',
-  accent = false,
-  className = ''
-}) {
-  const classes = [
-    'paint-divider',
-    orientation,
-    accent && 'accent',
-    className
-  ].filter(Boolean).join(' ')
+const PaintDivider = ({ className = '' }) => {
+  return (
+    <motion.div
+      className={`${styles.divider} ${className}`}
+      initial={{ scaleX: 0, opacity: 0 }}
+      animate={{ scaleX: 1, opacity: 1 }}
+      transition={{ duration: 0.6, ease: 'easeOut' }}
+    >
+      <motion.div
+        className={styles.drip}
+        initial={{ height: 0, opacity: 0 }}
+        animate={{ height: '100%', opacity: 1 }}
+        transition={{ duration: 0.8, delay: 0.3, ease: 'easeOut' }}
+      />
+    </motion.div>
+  )
+}
 
-  return <div className={classes} />
+PaintDivider.propTypes = {
+  className: PropTypes.string,
 }
 
 export default PaintDivider
