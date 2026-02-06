@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { motion } from 'framer-motion'
 import PropTypes from 'prop-types'
 import styles from './PaintDivider.module.css'
