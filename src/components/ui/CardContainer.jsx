@@ -1,20 +1,17 @@
-import './ui-components.css'
+import PropTypes from 'prop-types'
+import styles from './CardContainer.module.css'
 
-function CardContainer({
-  children,
-  className = '',
-  ...props
-}) {
-  const classes = [
-    'card',
-    className
-  ].filter(Boolean).join(' ')
-
+const CardContainer = ({ children, className = '' }) => {
   return (
-    <div className={classes} {...props}>
+    <div className={`${styles.container} ${className}`}>
       {children}
     </div>
   )
+}
+
+CardContainer.propTypes = {
+  children: PropTypes.node.isRequired,
+  className: PropTypes.string,
 }
 
 export default CardContainer
