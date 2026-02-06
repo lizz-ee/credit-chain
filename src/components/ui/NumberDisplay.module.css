@@ -1,0 +1,32 @@
+.container {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.25rem;
+  font-feature-settings: 'tnum' 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.value {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+  color: #6BFF4F;
+  letter-spacing: -0.02em;
+}
+
+.prefix,
+.suffix {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #8A8F98;
+}
+
+.prefix {
+  margin-right: 0.125rem;
+}
+
+.suffix {
+  margin-left: 0.125rem;
+}
